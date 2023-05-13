@@ -14,13 +14,13 @@ const Search = (onSearchChange) => {
   const loadOptions = async (inputValue) => {
     try {
       const response = await fetch(
-        `${GEO_API_URL}/adminDivisions?minPopulation=1000000&namePrefix=${inputValue}`,
+        `${GEO_API_URL}/countries?minPopulation=1000000&namePrefix=${inputValue}`,
         geoApiOptions
-      );
+      )
       const responseJson = await response.json();
-      const options = responseJson.map((item) => ({
-        value: item.value,
-        label: item.label,
+      console.log(responseJson.data)
+      const options = responseJson.data.map((item) => ({
+        label: item.name,
       }));
       return {
         options,
