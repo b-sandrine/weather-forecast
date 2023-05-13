@@ -8,7 +8,7 @@ import Search from './components/search/search'
 function App() {
   
   const handleOnSearchChange = (searchData) => {
-    console.log(searchData)
+    console.log("The data is " + searchData)
   } 
 
   return (
