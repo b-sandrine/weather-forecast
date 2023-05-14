@@ -1,20 +1,24 @@
+/* eslint-disable react/prop-types */
 import "./CurrentWeather.css";
 import { MdSunny } from "react-icons/md";
-export default function CurrentWeather() {
+
+// eslint-disable-next-line react/prop-types
+export default function CurrentWeather({data}) {
+  console.log(data)
   return (
     <div>
       <div className="weather--details">
         <div className="text--upper">
-          <p className="location">Azerbaijan, Baku</p>
-          <p className="temperature">13 &#176;C</p>
+          <p className="location">{data.city}</p>
+          <p className="temperature"> &#176;C</p>
           <div className="weather--status">
             {" "}
-            <p>Sunny</p> <MdSunny className="icon" />{" "}
+            <p>{data.weather[0].description}</p> <MdSunny className="icon" />{" "}
           </div>
         </div>
         <div className="text--medium">
           <p className="humidity">Humidity: 40%</p>
-          <p className="wind--speed">Wind Speed: 13 km/h</p>
+          <p className="wind--speed">Wind Speed: {data.wind.speed} km/h</p>
         </div>
       </div>
     </div>
