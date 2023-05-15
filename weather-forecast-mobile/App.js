@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#42C2FF",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 30,
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
     height: 600,
   }
 });
