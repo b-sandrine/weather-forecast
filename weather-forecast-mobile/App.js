@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import AppLoading from 'expo-app-loading'
 import Body from "./scr/components/Body/body";
 import Footer from "./scr/components/Footer/footer";
+import SearchBox from "./scr/components/Search/search";
+
 const fetchFonts = async () => {
   await Font.loadAsync({
     'inter-regular': require('./assets/inter/Inter-Bold.ttf'),
@@ -27,7 +29,10 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Body />
+      <View style={styles.background}>
+        <SearchBox />
+        <Body />
+      </View>
       <Footer />
     </View>
   );
@@ -37,4 +42,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  background : {
+    backgroundColor: "#42C2FF",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 30,
+    height: 600,
+  }
 });

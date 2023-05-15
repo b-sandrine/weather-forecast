@@ -22,11 +22,8 @@ export default function Body() {
 const styles = StyleSheet.create({
   bodyContainer: {
     flex: 1,
-    backgroundColor: "#42C2FF",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 30,
-    height: 400,
   },
   temperature: {
     fontFamily: "inter-bold",
