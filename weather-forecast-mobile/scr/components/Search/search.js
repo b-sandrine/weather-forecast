@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   icon: {
-    marginRight: 5,
+    marginRight: 15,
   },
   input: {
     flex: 1,
     height: 40,
-    fontSize: 16,
-    outline: 'none',
+    fontSize: 18,
+    outlineStyle: 'none',
   },
 });
 
