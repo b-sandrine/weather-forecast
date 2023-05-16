@@ -26,11 +26,14 @@ export default function App() {
     );
   }
 
+  const handleOnSearchChange = () => {
+    console.log('I am here')
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.background}>
-        <SearchBox />
+        <SearchBox onSearchChange={handleOnSearchChange}/>
         <Body />
       </View>
       <Footer />
