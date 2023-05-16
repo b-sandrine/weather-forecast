@@ -2,31 +2,14 @@ import React, { useEffect, useState } from "react";
 import { View, TextInput, StyleSheet } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { GEO_API_URL,geoApiOptions  } from "../../../api";
 
-const SearchBox = () => {
+const SearchBox = ({onSearchChange}) => {
   const [searchText, setSearchText] = useState("");
 
   const handleSearch = (text) => {
     setSearchText(text);
-    searchCities(text);
+    onSearchChange(text);
   };
-
-  const searchCities = async (inputValue) => {
-    
-    try {
-      const response = await fetch(
-        `${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`,
-        geoApiOptions
-      )
-      
-      console.log(response.json())
-    }
-    catch( err)  {
-      console.log(err)
-      
-    }
-  }
 
   return (
     <View style={styles.container}>

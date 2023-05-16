@@ -8,14 +8,14 @@ const getDate = () => {
   return date + '/' + month + "/" + year;
 }
 
-export default function Body() {
+export default function Body({data}) {
   const dateToDay = getDate();
   const date = new Date();
   const dayName = date.toLocaleString("en-US", {weekday: 'long'})
 
   return (
     <View style={styles.bodyContainer}>
-      <Text style={styles.place}>Kigali, RW</Text>
+      <Text style={styles.place}>{data.city}</Text>
       <Text style={styles.temperature}>23 &#176;C</Text>
       <View>
         <Image
@@ -23,7 +23,7 @@ export default function Body() {
           style={styles.image}
         />
       </View>
-      <Text style={styles.text}>Sunny</Text>
+      <Text style={styles.text}>{data.weather[0].description}</Text>
       <View style={styles.date}>
         <Text style={styles.text}>{dayName}</Text>
         <Text style={styles.text}>{dateToDay}</Text>
