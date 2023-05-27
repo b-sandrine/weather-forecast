@@ -22,4 +22,24 @@ const getUsers = async (req,res) => {
     }
 }
 
-module.exports = { addUser, getUsers };
+const deleteUser = async(req,res) => {
+    try {
+        const result = await Users.findOneAndRemove({email: req.body.email})
+        res.status(201).send(result)
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+
+const updateUser = async(req,res) => {
+    try {
+        const result = await Users.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
+        res.status(200).send(result)
+    }
+    catch(error) {
+        console.log(error)
+    }
+}
+
+module.exports = { addUser, getUsers, updateUser , deleteUser };
