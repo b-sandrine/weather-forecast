@@ -10,7 +10,7 @@ var userSchema = mongoose.Schema({
         unique: true
     },
     phonenumber: {
-        type: Number,
+        type: String,
         unique: true
     },
     password: {

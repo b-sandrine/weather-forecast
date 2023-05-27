@@ -1,6 +1,5 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const bodyParser = require('body-parser')
 const { json } = require('express')
 const cors = require('cors')
 
@@ -10,7 +9,7 @@ var app = express();
 
 const PORT = 3000;
 
-mongoose.connect('mongodb://localhost:27017/vehicleTrackingMS')
+mongoose.connect('mongodb://localhost:27017/weather-pp-db')
 .then(console.log('Successfully connected to db'))
 .catch(err => console.error(err))
 
