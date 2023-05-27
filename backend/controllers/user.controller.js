@@ -12,4 +12,14 @@ const addUser = async (req, res) => {
   }
 };
 
-module.exports = addUser;
+const getUsers = async (req,res) => {
+    try {
+        const result  = await Users.find();
+        res.status(302).send(result)
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+
+module.exports = { addUser, getUsers };
