@@ -1,13 +1,13 @@
+/* eslint-disable no-unused-vars */
 import "./App.css";
 import sun from "./assets/sun-dynamic-color.png";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
 import Search from "./components/search/search";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
 import { useState } from "react";
-
+import Signup from "./pages/Signup/Signup";
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
-  // eslint-disable-next-line no-unused-vars
   const [forecast, setForecast] = useState(null);
 
   function handleOnSearchChange(searchData) {
@@ -36,11 +36,12 @@ function App() {
 
   return (
     <div className="container">
-      <img src={sun} alt="sun image" />
+      {/* <img src={sun} alt="sun image" />
       <div className="weather--part">
         <Search onSearchChange={handleOnSearchChange} />
         {currentWeather && <CurrentWeather data={currentWeather} />}
-      </div>
+      </div> */}
+      <Signup />
     </div>
   );
 }
