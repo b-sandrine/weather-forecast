@@ -2,7 +2,7 @@
 import { useState } from "react";
 import "./Signup.css";
 import axios from 'axios'
-
+import { useNavigate } from "react-router";
 const Signup = () => {
   const [user, setUser] = useState({
     names: "",
@@ -12,6 +12,8 @@ const Signup = () => {
     cpassword: "",
   });
 
+  const navigate = useNavigate()
+
   const handleOnChange = (event) => {
     setUser({...user, [event.target.name]: event.target.value })
   }
@@ -20,6 +22,7 @@ const Signup = () => {
     axios.post("http://localhost:3000/api/adduser", user)
     .then(res => {
         console.log(res)
+        navigate('/login')
     })
     .catch(err => {
         console.log(err)

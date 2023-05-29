@@ -6,6 +6,10 @@ import Search from "./components/search/search";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
 import { useState } from "react";
 import Signup from "./pages/Signup/Signup";
+import Login from "./pages/Login/Login";
+import {Routes, Route } from 'react-router'
+import Welcome from "./pages/Welcome/welcome";
+
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
@@ -41,7 +45,14 @@ function App() {
         <Search onSearchChange={handleOnSearchChange} />
         {currentWeather && <CurrentWeather data={currentWeather} />}
       </div> */}
-      <Signup />
+      
+
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path="/welcome" element={<Welcome />} />
+      </Routes>
+      
     </div>
   );
 }
