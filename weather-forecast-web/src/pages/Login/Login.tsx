@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useNavigate } from "react-router";
 const Login = () => {
     const [user, setUser] = useState({
-        names: "",
+        email: "",
         password: ""
     })
 
@@ -15,7 +15,7 @@ const Login = () => {
       }
     
       const handleOnSubmit = () => {
-        axios.post("http://localhost:3000/api/adduser", user)
+        axios.post("http://localhost:3000/api/login", user)
         .then(res => {
             console.log(res)
             navigate('/welcome')
@@ -29,11 +29,11 @@ const Login = () => {
     <div className="login--container">
         <h1>Log into your account</h1>
       <input
-        type="text"
-        name="names"
+        type="email"
+        name="email"
         id=""
-        placeholder="Enter your full names"
-        value={user.names}
+        placeholder="Enter your email"
+        value={user.email}
         onChange={handleOnChange}
       />
       <input
