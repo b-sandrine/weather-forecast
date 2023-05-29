@@ -12,6 +12,21 @@ const addUser = async (req, res) => {
   }
 };
 
+const login = async(req,res) => {
+    try {
+        const email = req.body.email;
+        const password = req.body.password;
+
+        const user = await Users.findOne({email})
+        if(user) {
+            res.status(200).send(user)
+        }
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
 const getUsers = async (req,res) => {
     try {
         const result  = await Users.find();
@@ -42,4 +57,4 @@ const updateUser = async(req,res) => {
     }
 }
 
-module.exports = { addUser, getUsers, updateUser , deleteUser };
+module.exports = { addUser, login, getUsers, updateUser , deleteUser };

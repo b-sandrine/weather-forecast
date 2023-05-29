@@ -1,11 +1,13 @@
 const express = require('express')
-const  { addUser, getUsers, updateUser , deleteUser }  = require('../controllers/user.controller')
+const  { addUser, login,getUsers, updateUser , deleteUser }  = require('../controllers/user.controller')
 const router = express.Router();
 
 router.get('/', (req,res) => {
     res.send('Welcome to apis')
 })
 router.post('/adduser', addUser);
+
+router.post('/login', login);
 
 router.get('/allusers', getUsers);
 
